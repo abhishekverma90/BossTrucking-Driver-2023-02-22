@@ -1,0 +1,45 @@
+import 'package:boss_trucking_driver_22_02_2023/core/app_export.dart';
+import 'package:boss_trucking_driver_22_02_2023/widgets/custom_search_view.dart';
+import 'package:flutter/material.dart';
+
+// ignore: must_be_immutable
+class AppbarSearchview extends StatelessWidget {
+  AppbarSearchview({this.hintText, this.controller, this.margin});
+
+  String? hintText;
+
+  TextEditingController? controller;
+
+  EdgeInsetsGeometry? margin;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: margin ?? EdgeInsets.zero,
+      child: CustomSearchView(
+        width: getHorizontalSize(
+          262,
+        ),
+        focusNode: FocusNode(),
+        controller: controller,
+        hintText: hintText,
+        prefix: Container(
+          margin: getMargin(
+            left: 13,
+            top: 10,
+            right: 8,
+            bottom: 10,
+          ),
+          child: CustomImageView(
+            svgPath: ImageConstant.imgSearch,
+          ),
+        ),
+        prefixConstraints: BoxConstraints(
+          maxHeight: getVerticalSize(
+            36,
+          ),
+        ),
+      ),
+    );
+  }
+}
